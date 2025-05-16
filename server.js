@@ -2,10 +2,14 @@
 require('dotenv').config();
 
 const express = require('express');
-const { MongoClient } = require('mongodb');                // Official MongoDB driver :contentReference[oaicite:1]{index=1}
+const cors = require('cors'); // Add this line
+const { MongoClient } = require('mongodb');                // Official MongoDB driver
 
 const app = express();
+app.use(cors()); // Add this line to enable CORS
 app.use(express.json());                                   // Parse JSON bodies
+
+// ...existing code...                                // Parse JSON bodies
 
 // 2. Create & connect the MongoClient
 // const client = new MongoClient(process.env.MONGODB_URI, {
